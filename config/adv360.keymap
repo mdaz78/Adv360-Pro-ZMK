@@ -59,6 +59,13 @@
             bindings = <&kp LA(LC(DOWN))>;
             label = "MOVE_WINDOW_DOWN";
         };
+
+        fullscreen: fullscreen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(ENTER))>;
+            label = "FULLSCREEN";
+        };
     };
 
     keymap {
@@ -66,11 +73,11 @@
 
         default_layer {
             bindings = <
-&kp EQUAL  &kp N1     &kp N2     &kp N3    &kp N4     &kp N5  &tog 1                                                                       &mo 3      &kp N6  &kp N7  &kp N8    &kp N9    &kp N0    &kp BACKSLASH
-&kp TAB    &kp SQT    &kp COMMA  &kp DOT   &kp P      &kp Y   &macro_raycast                                                               &none      &kp F   &kp G   &kp C     &kp R     &kp L     &kp SLASH
-&kp LCTRL  &kp A      &kp O      &kp E     &kp U      &kp I   &kp ESC         &kp LCTRL  &kp LALT  &none  &none  &kp LGUI       &kp RCTRL  &none      &kp D   &kp H   &kp T     &kp N     &kp S     &kp MINUS
-&kp LSHFT  &kp SEMI   &kp Q      &kp J     &kp K      &kp X   &none           &none      &kp HOME  &none  &none  &kp PG_UP      &none      &none      &kp B   &kp M   &kp W     &kp V     &kp Z     &kp RSHFT
-&tog 2     &kp GRAVE  &kp CAPS   &kp LEFT  &kp RIGHT          &kp BSPC        &kp LGUI   &kp END                 &kp RIGHT_ALT  &kp ENTER  &kp SPACE          &kp UP  &kp DOWN  &kp LBKT  &kp RBKT  &tog 4
+&kp EQUAL  &kp N1     &kp N2     &kp N3    &kp N4     &kp N5  &tog 1                                                                             &mo 3      &kp N6  &kp N7  &kp N8    &kp N9    &kp N0    &kp BACKSLASH
+&kp TAB    &kp SQT    &kp COMMA  &kp DOT   &kp P      &kp Y   &macro_raycast                                                                     &none      &kp F   &kp G   &kp C     &kp R     &kp L     &kp SLASH
+&kp LCTRL  &kp A      &kp O      &kp E     &kp U      &kp I   &kp ESC           &kp LCTRL      &kp LALT  &none  &none  &kp LGUI       &kp RCTRL  &none      &kp D   &kp H   &kp T     &kp N     &kp S     &kp MINUS
+&kp LSHFT  &kp SEMI   &kp Q      &kp J     &kp K      &kp X   &none             &none          &kp HOME  &none  &none  &kp PG_UP      &none      &none      &kp B   &kp M   &kp W     &kp V     &kp Z     &kp RSHFT
+&tog 2     &kp GRAVE  &kp CAPS   &kp LEFT  &kp RIGHT          &kp LEFT_COMMAND  &kp BACKSPACE  &kp END                 &kp RIGHT_ALT  &kp ENTER  &kp SPACE          &kp UP  &kp DOWN  &kp LBKT  &kp RBKT  &tog 4
             >;
         };
 
@@ -86,11 +93,11 @@
 
         layer_fn {
             bindings = <
-&kp F1  &kp F2  &kp F3             &kp F4             &kp F5              &kp F6  &tog 1                                                &mo 3   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans             &move_window_up    &trans              &trans  &none                                                 &none   &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &move_window_left  &move_window_down  &move_window_right  &trans  &none   &trans  &trans  &none  &none  &trans  &trans  &none   &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans             &trans             &trans              &trans  &none   &none   &trans  &none  &none  &trans  &none   &none   &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans             &trans             &trans                      &trans  &trans  &trans                &trans  &trans  &trans          &trans  &trans  &trans   &trans   &trans
+&kp F1  &kp F2       &kp F3             &kp F4             &kp F5              &kp F6  &tog 1                                                &mo 3   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans       &trans             &move_window_up    &trans              &trans  &none                                                 &none   &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &fullscreen  &move_window_left  &move_window_down  &move_window_right  &trans  &none   &trans  &trans  &none  &none  &trans  &trans  &none   &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans       &trans             &trans             &trans              &trans  &none   &none   &trans  &none  &none  &trans  &none   &none   &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans       &trans             &trans             &trans                      &trans  &trans  &trans                &trans  &trans  &trans          &trans  &trans  &trans   &trans   &trans
             >;
         };
 
